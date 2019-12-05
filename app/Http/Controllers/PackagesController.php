@@ -35,12 +35,30 @@ class PackagesController extends Controller
      */
     public function store(Request $request)
     {
-        $package = new package;
-        $package-> number_users = $request-> number_users;
-        $package -> type = $request-> type;
-        $package -> price = $request -> price;
-        $package-> save();
-        return back();
+             $number_users = $request->number_users;
+        $type =  $request->type;
+    $price =  $request->price;
+
+    if(count($type) == count($price)){
+       
+     
+        
+        $count = count($type);
+    }
+   
+
+    for($i = 0; $i < $count; $i++){
+        $data = array(
+            'number_users' => $number_users,
+            'type' => $type[$i],
+            'price' => $price[$i]
+        );
+
+        $insertData[] = $data;
+    }
+
+    package::insert($insertData);
+return back();
     }
 
     /**
