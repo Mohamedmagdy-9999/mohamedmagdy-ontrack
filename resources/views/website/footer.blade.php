@@ -411,6 +411,17 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                 hidden8.setAttribute('value', '$8.00');
                             })
                             </script>
+                             <script>
+                                var buy = document.querySelector('#buy');
+                                
+                                $("#buy").click(function(){
+                                    var num = document.querySelector('#numb');
+                                    if(num.value == ''){
+                                        alert("The value is empty")
+                                    }
+
+                                })
+                            </script>
 
     <script>
         $(".buttonsClass").click(function(){
